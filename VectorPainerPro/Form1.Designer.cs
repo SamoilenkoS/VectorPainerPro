@@ -34,8 +34,9 @@ namespace VectorPainerPro
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripPencil = new System.Windows.Forms.ToolStripButton();
             this.openDllDialog = new System.Windows.Forms.OpenFileDialog();
+            this.toolStripRectangle = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +66,8 @@ namespace VectorPainerPro
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabel1,
-            this.toolStripButton1});
+            this.toolStripPencil,
+            this.toolStripRectangle});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(757, 27);
@@ -79,15 +81,25 @@ namespace VectorPainerPro
             this.toolStripLabel1.Text = "Load tool";
             this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 
-            // toolStripButton1
+            // toolStripPencil
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(29, 24);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.toolStripPencil.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripPencil.Image = ((System.Drawing.Image)(resources.GetObject("toolStripPencil.Image")));
+            this.toolStripPencil.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripPencil.Name = "toolStripPencil";
+            this.toolStripPencil.Size = new System.Drawing.Size(29, 24);
+            this.toolStripPencil.Text = "toolStripPencil";
+            this.toolStripPencil.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // toolStripRectangle
+            // 
+            this.toolStripRectangle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripRectangle.Image = ((System.Drawing.Image)(resources.GetObject("toolStripRectangle.Image")));
+            this.toolStripRectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripRectangle.Name = "toolStripRectangle";
+            this.toolStripRectangle.Size = new System.Drawing.Size(29, 24);
+            this.toolStripRectangle.Text = "toolStripRectangle";
+            this.toolStripRectangle.Click += new System.EventHandler(this.toolStripRectangle_Click);
             // 
             // Form1
             // 
@@ -112,8 +124,9 @@ namespace VectorPainerPro
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton toolStripPencil;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.OpenFileDialog openDllDialog;
+        private System.Windows.Forms.ToolStripButton toolStripRectangle;
     }
 }
