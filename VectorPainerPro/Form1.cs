@@ -15,6 +15,7 @@ namespace VectorPainerPro
     public partial class Form1 : Form
     {
         private bool _isClicked;
+        private string _currentTool;
         private Point _start;
         private Action<Graphics, Pen, Point, Point> DrawSomething;
         Bitmap _temp;
@@ -35,13 +36,52 @@ namespace VectorPainerPro
                     .GetTypes()
                     .Where(x =>
                         x.GetInterface(typeof(IPaintable).FullName) != null);
+
+                foreach (var type in types)
+                {
+                    GenerateButton(type);
+                }
             }
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
+        private void GenerateButton(Type type)
         {
-            DrawSomething = DrawLine;
+            if (type.GetInterface(typeof(IPaintable).FullName) == null)
+            {
+                throw new ArgumentException();
+            }
+
+            var obj = Activator.CreateInstance(type);
+            var toolTitle = GetPropertyFromType<string>(type, nameof(IPaintable.ToolTitle), obj);
+            var icon = GetPropertyFromType<Bitmap>(type, nameof(IPaintable.Icon), obj);
+
+            var onClickMethod = type.GetMethod(nameof(IPaintable.Draw), BindingFlags.Public | BindingFlags.Instance);
+            var action = (Action<Graphics, Pen, Point, Point>)Delegate
+                .CreateDelegate(typeof(Action<Graphics, Pen, Point, Point>), obj, onClickMethod);
+
+            var onClick = new EventHandler((x, y)=>
+            {
+                _currentTool = toolTitle;
+                DrawSomething = action;
+            });
+
+            ToolStripButton toolStripButton = new ToolStripButton(toolTitle, icon, onClick, toolTitle);
+
+            toolStripTools.Items.Add(toolStripButton);
         }
+
+        private T GetPropertyFromType<T>(Type type, string propertyTitle, object instance)
+        {
+            var property = type
+              .GetProperty(
+                  propertyTitle,
+                  BindingFlags.Public | BindingFlags.Instance);
+
+            var propertyValue = property.GetValue(instance);
+
+            return (T)propertyValue;
+        }
+
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
@@ -69,24 +109,6 @@ namespace VectorPainerPro
                     }
                 }
             }
-        }
-
-        private void DrawLine(Graphics graphics, Pen pen, Point start, Point end)
-        {
-            graphics.DrawLine(pen, start, end);
-        }
-
-        private void DrawRectangle(Graphics graphics, Pen pen, Point start, Point end)
-        {
-            int width = end.X - start.X;
-            int height = end.Y - start.Y;
-
-            graphics.DrawRectangle(Pens.Black, start.X, start.Y, width, height);
-        }
-
-        private void toolStripRectangle_Click(object sender, EventArgs e)
-        {
-            DrawSomething = DrawRectangle;
         }
     }
 }

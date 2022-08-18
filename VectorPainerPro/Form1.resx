@@ -57,36 +57,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+  <metadata name="toolStripTools.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>152, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="toolStripPencil.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAGIAAABmCAYAAAAwNEQYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAISSURBVHhe7ZFBbiJREMU4yCxzT048ZyBTUiJFkSGTBPr7
-        C1vyBkF38Xy6bMzpdEJ3ZNsQFOCju7FlCBr+s7tRCAnbXUyjX3MntrqWxh7//nnBz3eiEBK2uZaGHifC
-        tRDjLmxxKQ08vke4FWMXCiFBfymNO36OcC3EuAPqK2nUkSK8S9/fgUJI0F5Jg440/kfpN6Md5YU05EjD
-        k/RbO4WQoLuQRhxp8FvSM8yorqPxRhr6K+k5ZgohQXMdDTfSyP8rPc+K4jIabKRxvyM908rThRiNLL+K
-        hhpp2J9Izzay9CoaaaRBfyo938hThhhtLLuIxhlpzN9K77Gx5CIaZqQR7yG9y8bThhhNHH4NDTLSgPeU
-        3mlCEYKGu7f0XhOHXkNjjDTcvaX3jhYOu4RGGGm0R0nvt7A0BI31SOkGC4dcQgOMNNYjpRtGAw+/gv74
-        SEMdId1iYFkIkwYK8eZqDrmA/rjN1RTizdUU4p8GloU4n8+HS3dYKISEQkgohIRCSCiEhEJIKISEQkgo
-        hIRCSCiEhEJIKISEQkgohIRCSCiEhEJIKISEQkgohIRCSCiEhEJIKISEQkgohIRCSCiEhEJIKISEQkgo
-        hIRCSCiEhEJIKISEQkgohIRCSCiEhEJIKISEQkgohIRCSCiEhEJIKISEQkgohIRCSCiEhEJIKISEQkgo
-        hIRCSFgWwqKFQkgohILL5RWyj0+jgK4FfwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="toolStripRectangle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAEISURBVEhL3ZErDsJAGIR7DlA47oArV8CDR9RiSDAQPBcA
-        Qx1BgUMQBEk1ooJAKE0I4Wlqf5gmu1n6oqW7hiZfthkx33aqeZ5HKvEFpmmSYRhSQScXINB1XSroDAke
-        96cUpAmupyPZsx7Z8x4drAnPpQmsgU7LdoHDJNIEYjnAlyBXJ3jPhVyaYLca8nLMhX+CPJXAOT+ouTj5
-        p5in4asApdWpS8XRwT+zShIFG/fOyxlZJbGC9f5G5bHzUf6LJFJQqTViyxlxEmRiHhLUW10qDbeRpUGC
-        ErwjE/OQoG9dIsviYGWsXMwxc24BYLcO5pgZc+cWJIG5MbsyAUDnHwlUAkFHJZraR9NeMVq3zi+WF/0A
-        AAAASUVORK5CYII=
-</value>
-  </data>
   <metadata name="openDllDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>276, 17</value>
   </metadata>
