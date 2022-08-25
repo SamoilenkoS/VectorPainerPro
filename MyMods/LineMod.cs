@@ -15,10 +15,5 @@ namespace VectorModderPack
         {
             graphics.DrawLine(pen, start, end);
         }
-
-        public void Fill(Graphics graphics, Brush brush, Point start, Point end)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

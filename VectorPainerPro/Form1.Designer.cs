@@ -29,7 +29,6 @@ namespace VectorPainerPro
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolStripTools = new System.Windows.Forms.ToolStrip();
@@ -37,7 +36,8 @@ namespace VectorPainerPro
             this.toolStripRectangle = new System.Windows.Forms.ToolStripButton();
             this.openDllDialog = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
-            //this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.buttonCreateTestAnimation = new System.Windows.Forms.Button();
+            this.buttonPause = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStripTools.SuspendLayout();
             this.SuspendLayout();
@@ -93,21 +93,39 @@ namespace VectorPainerPro
             // 
             this.button1.Location = new System.Drawing.Point(523, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.Size = new System.Drawing.Size(119, 29);
             this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
+            this.button1.Text = "RunAnimation";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // timer1
+            // buttonCreateTestAnimation
             // 
-            //this.timer1.Interval = 30;
+            this.buttonCreateTestAnimation.Location = new System.Drawing.Point(648, 13);
+            this.buttonCreateTestAnimation.Name = "buttonCreateTestAnimation";
+            this.buttonCreateTestAnimation.Size = new System.Drawing.Size(94, 29);
+            this.buttonCreateTestAnimation.TabIndex = 5;
+            this.buttonCreateTestAnimation.Text = "Create";
+            this.buttonCreateTestAnimation.UseVisualStyleBackColor = true;
+            this.buttonCreateTestAnimation.Click += new System.EventHandler(this.buttonCreateTestAnimation_Click);
+            // 
+            // buttonPause
+            // 
+            this.buttonPause.Location = new System.Drawing.Point(399, 12);
+            this.buttonPause.Name = "buttonPause";
+            this.buttonPause.Size = new System.Drawing.Size(94, 29);
+            this.buttonPause.TabIndex = 6;
+            this.buttonPause.Text = "Pause";
+            this.buttonPause.UseVisualStyleBackColor = true;
+            this.buttonPause.Click += new System.EventHandler(this.buttonPause_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 480);
+            this.Controls.Add(this.buttonPause);
+            this.Controls.Add(this.buttonCreateTestAnimation);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.toolStripTools);
             this.Controls.Add(this.pictureBox1);
@@ -132,5 +150,7 @@ namespace VectorPainerPro
         private System.Windows.Forms.ToolStripButton toolStripRectangle;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button buttonCreateTestAnimation;
+        private System.Windows.Forms.Button buttonPause;
     }
 }

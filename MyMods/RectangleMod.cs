@@ -18,10 +18,5 @@ namespace VectorModderPack
 
             graphics.DrawRectangle(Pens.Black, start.X, start.Y, width, height);
         }
-
-        public void Fill(Graphics graphics, Brush brush, Point start, Point end)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

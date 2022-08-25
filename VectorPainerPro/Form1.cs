@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -129,27 +131,139 @@ namespace VectorPainerPro
             }
         }
 
+        CancellationTokenSource cancelationTokenSource;
+        bool wasStopped;
+        FigureAnimation figureAnimation;
+        ToolParams currentParams;
+        int currentAnimationIndex;
+        int currentRepeatIndex;
+
         private void button1_Click(object sender, EventArgs e)
         {
-            Thread thread = new Thread(Test);
+            if (!wasStopped)
+            {
+                using (StreamReader sr = new StreamReader(
+                    @"C:\Users\Sviatoslav_Samoilenk\AppData\Local\Temp\tmp84B.tmp"))
+                {
+                    figureAnimation = JsonSerializer.Deserialize<FigureAnimation>(sr.ReadToEnd());
+                }
+
+                currentParams = (ToolParams)figureAnimation.ToolParams.Clone();
+                currentAnimationIndex = 0;
+                currentRepeatIndex = 0;
+            }
+
+            cancelationTokenSource = new CancellationTokenSource();
+            Thread thread = new Thread(() => Test(cancelationTokenSource.Token));
             thread.Start();
         }
 
-        private void Test()
+        private void Test(CancellationToken cancellationToken)
         {
-            for (int i = 0; i < 200; i++)
+            do
             {
-                using (var bitmap = new Bitmap(_temp, pictureBox1.Width, pictureBox1.Height))
+                using (var pen = new Pen(
+                    Color.FromArgb(figureAnimation.ToolParams.Color), figureAnimation.ToolParams.LineWidth))
                 {
-                    using (var graphics = Graphics.FromImage(bitmap))
+                    for (; currentAnimationIndex < figureAnimation.AnimationActions.Count; ++currentAnimationIndex)
                     {
-                        graphics.DrawLine(Pens.Black, 0, 0, i, i);
-                        Thread.Sleep(10);
-                        pictureBox1.Image?.Dispose();
-                        pictureBox1.Image = (Bitmap)bitmap.Clone();
+                        for (; currentRepeatIndex < figureAnimation.AnimationActions[currentAnimationIndex].Count; ++currentRepeatIndex)
+                        {
+                            using (var bitmap = new Bitmap(pictureBox1.Width, pictureBox1.Height))
+                            {
+                                using (var graphics = Graphics.FromImage(bitmap))
+                                {
+                                    graphics.DrawRectangle(
+                                       pen,
+                                       currentParams.StartX,
+                                       currentParams.StartY,
+                                       currentParams.EndX,
+                                       currentParams.EndY);
+
+                                    currentParams.Update(figureAnimation.AnimationActions[currentAnimationIndex]);
+                                    Thread.Sleep(10);
+                                    pictureBox1.Image?.Dispose();
+                                    pictureBox1.Image = (Bitmap)bitmap.Clone();
+
+                                    if (cancellationToken.IsCancellationRequested)
+                                    {
+                                        wasStopped = true;
+                                        return;
+                                    }
+                                }
+                            }
+                        }
+
+                        currentRepeatIndex = 0;
                     }
+
+                    currentAnimationIndex = 0;
+                    currentParams = (ToolParams)figureAnimation.ToolParams.Clone();
                 }
+            } while (true);
+
+
+            //for (int i = 0; i < 200; i++)
+            //{
+            //    using (var bitmap = new Bitmap(_temp, pictureBox1.Width, pictureBox1.Height))
+            //    {
+            //        using (var graphics = Graphics.FromImage(bitmap))
+            //        {
+            //            graphics.DrawLine(Pens.Black, 0, 0, i, i);
+            //            Thread.Sleep(10);
+            //            pictureBox1.Image?.Dispose();
+            //            pictureBox1.Image = (Bitmap)bitmap.Clone();
+            //        }
+            //    }
+            //}
+        }
+
+        private void buttonCreateTestAnimation_Click(object sender, EventArgs e)
+        {
+            var random = new Random();
+            var size = 100;
+            var widthCenter = pictureBox1.Width / 2;
+            var heightCenter = pictureBox1.Height / 2;
+            var animationActions = new List<AnimationAction>();
+            for (int i = 0; i < 5; i++)
+            {
+                animationActions.Add(new AnimationAction
+                {
+                    Count = (short)random.Next(10, 100),
+                    DeltaStartX = (short)random.Next(-2, 2),
+                    DeltaStartY = (short)random.Next(-2, 2)
+                });
             }
+
+            var animation = new FigureAnimation
+            {
+                ToolTitle = nameof(Rectangle),
+                ToolParams = new ToolParams
+                {
+                    Color = Color.FromArgb(
+                        random.Next(0, 255),
+                        random.Next(0, 255),
+                        random.Next(0, 255)).ToArgb(),
+                    LineWidth = 2,
+                    StartX = widthCenter - size,
+                    EndX = heightCenter - size,
+                    StartY = size,
+                    EndY = size
+                },
+                AnimationActions = animationActions
+            };
+
+            var filepath = Path.GetTempFileName();
+            using (StreamWriter sw = new StreamWriter(filepath))
+            {
+                sw.Write(JsonSerializer.Serialize(animation));
+            }
+            MessageBox.Show(filepath);
+        }
+
+        private void buttonPause_Click(object sender, EventArgs e)
+        {
+            cancelationTokenSource.Cancel();
         }
     }
 }
