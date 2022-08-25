@@ -5,9 +5,11 @@ VisualStudioVersion = 16.0.32630.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VectorPainerPro", "VectorPainerPro\VectorPainerPro.csproj", "{CF0AE645-3C3C-431F-A1A3-1A26F7471C61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VectorModderPack", "VectorModderPack\VectorModderPack.csproj", "{443B5A2B-06E6-4C2F-BA46-90E1376265F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VectorModderPack", "VectorModderPack\VectorModderPack.csproj", "{443B5A2B-06E6-4C2F-BA46-90E1376265F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyMods", "MyMods\MyMods.csproj", "{0BE4BF40-F29D-4F11-8E7E-0BF201A27C4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyMods", "MyMods\MyMods.csproj", "{0BE4BF40-F29D-4F11-8E7E-0BF201A27C4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MultitaskingAndMultithreading", "MultitaskingAndMultithreading\MultitaskingAndMultithreading.csproj", "{EE9F08F6-9475-48C2-BD40-5A6F19CDF59F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{0BE4BF40-F29D-4F11-8E7E-0BF201A27C4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0BE4BF40-F29D-4F11-8E7E-0BF201A27C4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0BE4BF40-F29D-4F11-8E7E-0BF201A27C4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE9F08F6-9475-48C2-BD40-5A6F19CDF59F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE9F08F6-9475-48C2-BD40-5A6F19CDF59F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE9F08F6-9475-48C2-BD40-5A6F19CDF59F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE9F08F6-9475-48C2-BD40-5A6F19CDF59F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

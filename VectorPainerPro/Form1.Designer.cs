@@ -36,6 +36,8 @@ namespace VectorPainerPro
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripRectangle = new System.Windows.Forms.ToolStripButton();
             this.openDllDialog = new System.Windows.Forms.OpenFileDialog();
+            this.button1 = new System.Windows.Forms.Button();
+            //this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.toolStripTools.SuspendLayout();
             this.SuspendLayout();
@@ -68,31 +70,45 @@ namespace VectorPainerPro
             this.toolStripRectangle});
             this.toolStripTools.Location = new System.Drawing.Point(0, 0);
             this.toolStripTools.Name = "toolStripTools";
-            this.toolStripTools.Size = new System.Drawing.Size(757, 27);
+            this.toolStripTools.Size = new System.Drawing.Size(757, 25);
             this.toolStripTools.TabIndex = 3;
             this.toolStripTools.Text = "toolStrip1";
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(73, 24);
+            this.toolStripLabel1.Size = new System.Drawing.Size(73, 22);
             this.toolStripLabel1.Text = "Load tool";
             this.toolStripLabel1.Click += new System.EventHandler(this.toolStripLabel1_Click);
             // 
             // toolStripRectangle
             // 
             this.toolStripRectangle.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripRectangle.Image = ((System.Drawing.Image)(resources.GetObject("toolStripRectangle.Image")));
             this.toolStripRectangle.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripRectangle.Name = "toolStripRectangle";
-            this.toolStripRectangle.Size = new System.Drawing.Size(29, 24);
+            this.toolStripRectangle.Size = new System.Drawing.Size(29, 22);
             this.toolStripRectangle.Text = "toolStripRectangle";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(523, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // timer1
+            // 
+            //this.timer1.Interval = 30;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 480);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.toolStripTools);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
@@ -114,5 +130,7 @@ namespace VectorPainerPro
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.OpenFileDialog openDllDialog;
         private System.Windows.Forms.ToolStripButton toolStripRectangle;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

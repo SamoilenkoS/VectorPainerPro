@@ -6,12 +6,28 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VectorModderPack;
 
 namespace VectorPainerPro
 {
+    //public class Figure
+    //{
+    //    public string ToolTitle { get; set; }
+    //    public List<Point> Points { get; set; }
+    //    public int LineWidth { get; set; }
+    //    public int Color { get; set; }
+    //}
+
+    //public class ImageInfo
+    //{
+    //    public List<Figure> Figures { get; set; }
+    //    public Dictionary<string, string> ToolsFilepathes { get; set; }//key = tool title
+    //    //value => path to library
+    //}
+
     public partial class Form1 : Form
     {
         private bool _isClicked;
@@ -59,7 +75,7 @@ namespace VectorPainerPro
             var action = (Action<Graphics, Pen, Point, Point>)Delegate
                 .CreateDelegate(typeof(Action<Graphics, Pen, Point, Point>), obj, onClickMethod);
 
-            var onClick = new EventHandler((x, y)=>
+            var onClick = new EventHandler((x, y) =>
             {
                 _currentTool = toolTitle;
                 DrawSomething = action;
@@ -103,7 +119,32 @@ namespace VectorPainerPro
                 {
                     using (var graphics = Graphics.FromImage(bitmap))
                     {
+                        //foreach var figure in figures
+                        //ToolChoose click
                         DrawSomething?.Invoke(graphics, Pens.Black, _start, e.Location);
+                        pictureBox1.Image?.Dispose();
+                        pictureBox1.Image = (Bitmap)bitmap.Clone();
+                    }
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Thread thread = new Thread(Test);
+            thread.Start();
+        }
+
+        private void Test()
+        {
+            for (int i = 0; i < 200; i++)
+            {
+                using (var bitmap = new Bitmap(_temp, pictureBox1.Width, pictureBox1.Height))
+                {
+                    using (var graphics = Graphics.FromImage(bitmap))
+                    {
+                        graphics.DrawLine(Pens.Black, 0, 0, i, i);
+                        Thread.Sleep(10);
                         pictureBox1.Image?.Dispose();
                         pictureBox1.Image = (Bitmap)bitmap.Clone();
                     }
